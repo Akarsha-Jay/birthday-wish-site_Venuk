@@ -1,0 +1,66 @@
+@import 'tailwindcss';
+@import 'tw-animate-css';
+@import 'shadcn/tailwind.css';
+
+@theme inline {
+  --font-sans: 'DM Sans', 'DM Sans Fallback';
+  --font-serif: 'Cormorant Garamond', 'Cormorant Garamond Fallback';
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-border: var(--border);
+  --color-primary: var(--primary);
+  --color-muted-foreground: var(--muted-foreground);
+}
+
+:root {
+  --background: #111116;
+  --foreground: #ede8e2;
+  --muted-foreground: #8e8990;
+  --primary: #e1a0a5;
+  --border: #37343a;
+  --paper: #e7ded4;
+  --ink: #28232a;
+  --radius: 0.5rem;
+}
+
+* { box-sizing: border-box; }
+html { background: var(--background); }
+body { margin: 0; background: var(--background); color: var(--foreground); font-family: 'DM Sans', sans-serif; }
+button { font: inherit; }
+
+.birthday-page { min-height: 100svh; overflow-x: hidden; position: relative; padding: 28px 32px 24px; display: flex; flex-direction: column; background: #111116; }
+.grain { position: fixed; inset: 0; pointer-events: none; opacity: .07; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.8'/%3E%3C/svg%3E"); }
+.page-header, .page-footer { position: relative; z-index: 1; display: flex; align-items: center; justify-content: space-between; color: var(--muted-foreground); font-size: 10px; letter-spacing: .16em; text-transform: uppercase; }
+.brand-mark { color: var(--primary); font-size: 12px; font-weight: 700; letter-spacing: .1em; }
+.birthday-content { position: relative; z-index: 1; width: min(100%, 760px); margin: auto; text-align: center; padding: 52px 0; }
+.eyebrow { display: flex; align-items: center; justify-content: center; gap: 12px; color: var(--primary); font-size: 10px; letter-spacing: .22em; text-transform: uppercase; }
+.eyebrow span { width: 24px; height: 1px; background: var(--primary); opacity: .6; }
+h1 { margin: 18px 0 10px; color: var(--foreground); font-family: 'Cormorant Garamond', serif; font-size: clamp(56px, 10vw, 104px); font-weight: 400; line-height: .84; letter-spacing: -.045em; }
+h1 em { color: var(--primary); font-style: italic; }
+.intro { margin: 0; color: var(--muted-foreground); font-size: 13px; line-height: 1.6; letter-spacing: .04em; }
+.letter-stage { margin: 44px auto 0; width: min(100%, 430px); perspective: 1200px; }
+.letter-card { position: relative; display: block; width: 100%; min-height: 280px; padding: 0; border: 0; background: transparent; cursor: pointer; transform-style: preserve-3d; transition: transform .8s cubic-bezier(.2,.8,.2,1); }
+.letter-card:focus-visible { outline: 2px solid var(--primary); outline-offset: 8px; }
+.letter-cover { position: absolute; inset: 0; border: 1px solid #4b4144; box-shadow: 0 18px 42px #00000040; }
+.letter-inside { position: relative; width: 100%; border: 1px solid #4b4144; box-shadow: 0 18px 42px #00000040; }
+.letter-cover { z-index: 2; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 15px; background: #2b222b; transition: transform .8s cubic-bezier(.2,.8,.2,1), opacity .4s; transform-origin: bottom center; }
+.letter-cover-top { position: absolute; inset: 0 0 50% 0; border-bottom: 1px solid #52444b; background: #352936; clip-path: polygon(0 0, 100% 0, 50% 100%); opacity: .7; }
+.letter-seal { display: grid; place-items: center; width: 30px; height: 30px; border: 1px solid var(--primary); border-radius: 50%; color: var(--primary); }
+.cover-kicker { position: relative; color: #bfa9ae; font-size: 9px; letter-spacing: .2em; text-transform: uppercase; }
+.cover-title { position: relative; color: #f1e7df; font-family: 'Cormorant Garamond', serif; font-size: 37px; line-height: .9; }
+.cover-hint { position: relative; display: flex; align-items: center; gap: 6px; color: var(--primary); font-size: 10px; letter-spacing: .14em; text-transform: uppercase; }
+.letter-inside { overflow: hidden; padding: 25px 29px; background: var(--paper); color: var(--ink); text-align: left; }
+.inside-header { display: flex; justify-content: space-between; color: #77676a; font-size: 8px; letter-spacing: .12em; text-transform: uppercase; }
+.inside-copy { margin-top: 26px; font-family: 'Cormorant Garamond', serif; font-size: 17px; line-height: 1.22; }
+.inside-copy p { margin: 0 0 12px; }
+.inside-greeting { font-size: 25px; }
+.inside-signoff { margin-top: 18px !important; font-size: 15px; font-style: italic; }
+.inside-signoff span { color: #77676a; font-size: 13px; }
+.letter-card.is-open .letter-cover { transform: rotateX(-112deg); opacity: 0; pointer-events: none; }
+.letter-controls { display: flex; align-items: center; justify-content: center; gap: 8px; margin-top: 18px; color: var(--muted-foreground); font-size: 10px; letter-spacing: .15em; text-transform: uppercase; transition: color .3s; }
+.letter-card.is-open + .letter-controls { color: var(--primary); }
+.page-footer { margin-top: auto; justify-content: center; gap: 12px; }
+.footer-dot { width: 3px; height: 3px; border-radius: 50%; background: var(--primary); }
+@media (max-width: 520px) { .birthday-page { padding: 22px 20px 20px; } .header-note { max-width: 150px; text-align: right; } .birthday-content { padding: 42px 0; } .letter-stage { margin-top: 38px; } .letter-card { min-height: 300px; } .letter-inside { padding: 21px 22px; } .inside-copy { font-size: 16px; } }
+@media (prefers-reduced-motion: reduce) { .letter-cover { transition: opacity .2s; } }
+@keyframes fall { 0% { transform: translateY(-10vh) rotate(0deg); } 100% { transform: translateY(110vh) rotate(360deg); } }
