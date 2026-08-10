@@ -20,22 +20,22 @@ export default function Page() {
         <p className="intro">Some people make an entrance.<br />You make a difference.</p>
         <BirthdayLetter />
 
-        <div className="mt-24 flex flex-wrap justify-center gap-6 sm:gap-8 pb-12 opacity-90">
+        <div className="mt-24 flex flex-col sm:flex-row items-center justify-center -space-y-12 sm:-space-y-0 sm:gap-8 pb-12 opacity-90">
           {[
-            { src: '/pic1.jpg', alt: 'Memory 1', rotate: '-rotate-3' },
-            { src: '/pic2.jpg', alt: 'Memory 2', rotate: 'rotate-2 translate-y-4' },
-            { src: '/pic3.jpg', alt: 'Memory 3', rotate: '-rotate-2' },
+            { src: '/pic1.jpg', alt: 'Memory 1', rotate: 'rotate-[-4deg] sm:-rotate-3 translate-x-2 sm:translate-x-0' },
+            { src: '/pic2.jpg', alt: 'Memory 2', rotate: 'rotate-[3deg] sm:rotate-2 -translate-x-3 sm:translate-x-0 sm:translate-y-4' },
+            { src: '/pic3.jpg', alt: 'Memory 3', rotate: 'rotate-[-2deg] sm:-rotate-2 translate-x-1 sm:translate-x-0' },
           ].map((pic, i) => (
             <div 
               key={i} 
-              className={`relative w-48 h-56 sm:w-56 sm:h-64 bg-[#e7ded4] p-2.5 pb-10 sm:p-3 sm:pb-12 shadow-2xl border border-[#37343a] transition-all duration-500 md:hover:scale-110 md:hover:z-10 md:hover:-translate-y-2 cursor-pointer ${pic.rotate}`}
+              className={`relative w-56 h-64 sm:w-56 sm:h-64 bg-[#e7ded4] p-2.5 pb-10 sm:p-3 sm:pb-12 shadow-2xl border border-[#37343a] transition-all duration-500 md:hover:scale-110 md:hover:z-50 md:hover:-translate-y-2 cursor-pointer z-[${i*10}] ${pic.rotate}`}
             >
-              <div className="relative w-full h-full bg-[#111116] overflow-hidden rounded-sm">
+              <div className="relative w-full h-full bg-[#111116] overflow-hidden rounded-sm shadow-inner">
                 <Image 
                   src={pic.src} 
                   alt={pic.alt} 
                   fill 
-                  sizes="(max-width: 640px) 192px, 224px"
+                  sizes="(max-width: 640px) 224px, 224px"
                   className="object-cover grayscale-0 md:grayscale md:hover:grayscale-0 transition-all duration-700" 
                 />
               </div>
