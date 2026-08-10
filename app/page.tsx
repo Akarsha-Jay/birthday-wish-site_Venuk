@@ -28,7 +28,7 @@ export default function Page() {
           ].map((pic, i) => (
             <div 
               key={i} 
-              className={`relative w-48 h-56 sm:w-56 sm:h-64 bg-[#e7ded4] p-2.5 pb-10 sm:p-3 sm:pb-12 shadow-2xl border border-[#37343a] transition-all duration-500 hover:scale-110 hover:z-10 hover:-translate-y-2 cursor-pointer ${pic.rotate}`}
+              className={`relative w-48 h-56 sm:w-56 sm:h-64 bg-[#e7ded4] p-2.5 pb-10 sm:p-3 sm:pb-12 shadow-2xl border border-[#37343a] transition-all duration-500 md:hover:scale-110 md:hover:z-10 md:hover:-translate-y-2 cursor-pointer ${pic.rotate}`}
             >
               <div className="relative w-full h-full bg-[#111116] overflow-hidden rounded-sm">
                 <Image 
@@ -36,7 +36,7 @@ export default function Page() {
                   alt={pic.alt} 
                   fill 
                   sizes="(max-width: 640px) 192px, 224px"
-                  className="object-cover grayscale hover:grayscale-0 transition-all duration-700" 
+                  className="object-cover grayscale-0 md:grayscale md:hover:grayscale-0 transition-all duration-700" 
                 />
               </div>
             </div>
